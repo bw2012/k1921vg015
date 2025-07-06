@@ -6,8 +6,8 @@
 #==============================================================================
 TARGET_NAME = vg015_test
 
-COMPILER_PATH 	= /home/blackw/src/k1921vg015/riscv-gcc/bin/
-OPENOCD_PATH	= /home/blackw/src/k1921vg015/openocd/bin/openocd
+COMPILER_PATH 	= /opt/vg015/xpack-riscv-none-elf-gcc-13.2.0-2/bin/
+OPENOCD_PATH	= /opt/vg015/xpack-openocd-k1921vk-0.12.0-k1921vk/bin/openocd
 
 SOURCES_PATH 	= ./platform/source/
 LIBS_PATH		= $(COMPILER_PATH)../riscv-none-elf/lib/rv32imfc_zicsr/ilp32f/
