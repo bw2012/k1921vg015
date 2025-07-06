@@ -6,7 +6,8 @@
 #==============================================================================
 TARGET_NAME = vg015_test
 
-COMPILER_PATH = /home/blackw/src/k1921vg015/riscv-gcc/bin/
+COMPILER_PATH 	= /home/blackw/src/k1921vg015/riscv-gcc/bin/
+OPENOCD_PATH	= /home/blackw/src/k1921vg015/openocd/bin/openocd
 
 SOURCES_PATH 	= ./platform/source/
 LIBS_PATH		= $(COMPILER_PATH)../riscv-none-elf/lib/rv32imfc_zicsr/ilp32f/
@@ -16,7 +17,7 @@ LINKER_PATH  	= ./platform/ldscripts/
 BUILD_NAME		= build
 BUILD_PATH  	= ./$(BUILD_NAME)
 
-OPENOCD_PATH	= /home/blackw/src/k1921vg015/openocd/bin/openocd
+
 
 ELF_O_FILES := $(patsubst %.c, %.o, $(wildcard *.c)) $(patsubst %.c, %.o,$(wildcard $(SOURCES_PATH)/*.c)) $(patsubst %.S, %.o, $(wildcard $(SOURCES_PATH)/*.S))
 
@@ -90,7 +91,10 @@ hex:
 	$(RISCV-OBJCOPY) -O ihex $(BUILD_PATH)/$(TARGET_NAME).elf $(BUILD_PATH)/$(TARGET_NAME).hex
 	echo "...DONE"
 
-upload:
+upload-jlink:
 	$(OPENOCD_PATH) -f interface/jlink.cfg -f target/k1921vg015.cfg -c "init; reset halt; program $(BUILD_PATH)/$(TARGET_NAME).hex verify reset; exit"
+
+upload-bp:
+	$(OPENOCD_PATH) -f ../blueprog.cfg -f target/k1921vg015.cfg -c "init; reset halt; program $(BUILD_PATH)/$(TARGET_NAME).hex verify reset; exit"
 
 
