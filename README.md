@@ -1,7 +1,9 @@
-# Адаптированная для сборки под Linux версия примера работы с российским микроконтроллером К1921ВГ015
+# Linux К1921ВГ015 examples
+
+Адаптированная для сборки под Linux версия примера работы с российским микроконтроллером К1921ВГ015
 
 
-# RISCV GCC toolkit 
+## RISCV GCC toolkit 
 
 Скачать RISCV GCC toolkit версии 13.2.0 
 
@@ -13,7 +15,8 @@
 https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/
 
 
-# OpenOCD
+
+## OpenOCD
 
 Скачать сборку OpenOCD
 
@@ -24,7 +27,8 @@ https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/
 
 https://github.com/DCVostok/openocd-k1921vk/releases
 
-# Environment setup
+
+## Environment setup
 
 Распаковать архивы куда-нибудь в удобное-место.
 
@@ -32,14 +36,35 @@ https://github.com/DCVostok/openocd-k1921vk/releases
 
 COMPILER_PATH должен указывать на bin каталог RISCV GCC toolkit, OPENOCD_PATH на исполняемый файл openocd
 
-# Make
+
+## Make
 
 `make`
 
 Собирает прошивку
 
-# Firmware upload
+> [!NOTE]
+> Исходники прошивок адаптированы для работы с отладочной платой BlueBird-VG015, а не с оригинальной платой от АО «НИИЭТ». Встроенный светодиод не на том пине и т.д.
 
-`make upload`
 
-Заливает её через JLink
+## Firmware upload
+
+`make upload-jlink`
+
+Заливает прошивку через JLink
+
+`make upload-bp`
+
+Заливает прошивку через программатор BlueProg
+
+
+## Links
+
+Сайт производителя отладочной платы BlueBird-VG015
+
+https://www.xn-----6kccalfmhwcdcrbm1aajnghfrqjce3b0z.xn--p1ai/VG015/1-VG015_devboard.html
+
+
+Офф. сайт производителя микроконтроллеров К1921ВГ015 АО «НИИЭТ»
+
+https://niiet.ru/product/%D0%BA1921%D0%B2%D0%B3015/
