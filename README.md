@@ -30,14 +30,18 @@ https://github.com/DCVostok/openocd-k1921vk/releases
 
 ## Environment setup
 
-Распаковать архивы куда-нибудь в удобное-место.
+`sudo mkdir /opt/vg015`
 
-Подправить Makefile 
+`sudo tar -xf xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz -C /opt/vg015`
+
+`sudo tar -xf xpack-openocd-k1921vk-0.12.0-k1921vk-linux-x64.tar.gz -C /opt/vg015`
 
 COMPILER_PATH должен указывать на bin каталог RISCV GCC toolkit, OPENOCD_PATH на исполняемый файл openocd
 
 
 ## Make
+
+`cd blink`
 
 `make`
 
